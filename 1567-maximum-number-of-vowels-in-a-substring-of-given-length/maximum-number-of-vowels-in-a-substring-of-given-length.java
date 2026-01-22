@@ -7,17 +7,14 @@ class Solution {
         int maxLength = 0;
 
         for (i = 0; i < s.length(); i++) {
-            if (i < k) {
-                if (vowels.indexOf(s.charAt(i)) != -1)
-                    currentCount++;
-            } else {
+            if (vowels.indexOf(s.charAt(i)) != -1)
+                currentCount++;
+            if (i >= k) {
                 if (vowels.indexOf(s.charAt(left)) != -1)
                     currentCount--;
-                if(vowels.indexOf(s.charAt(i)) != -1) 
-                    currentCount++; 
                 left++;
             }
-            maxLength = Math.max(maxLength,currentCount);
+            maxLength = Math.max(maxLength, currentCount);
         }
 
         return maxLength;
